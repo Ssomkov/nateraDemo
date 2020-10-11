@@ -105,4 +105,14 @@ public class AddTrianglesTest extends BaseTest {
                 .body("thirdSide", equalTo(10.0f))
                 .body("id", is(not(emptyString())));
     }
+
+    @Test(description = "check no separator")
+    public void checkNoSeparator() {
+        ValidatableResponse responseShouldHave = addTriangle(5, 7, 10, "");
+        responseShouldHave
+                .statusCode(422)
+                .body("error", equalTo("Unprocessable Entity"))
+                .body("message", equalTo("Cannot process input"))
+                .body("id", is(not(emptyString())));
+    }
 }
