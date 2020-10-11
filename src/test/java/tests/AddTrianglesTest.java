@@ -39,9 +39,9 @@ public class AddTrianglesTest extends BaseTest {
         ValidatableResponse responseShouldHave = addTriangle("{\"input\":\"3.1; 3.1; 3.1\"}");
         responseShouldHave
                 .statusCode(200)
-                .body("firstSide", equalTo(4.2f))
-                .body("secondSide", equalTo(4.2f))
-                .body("thirdSide", equalTo(4.2f))
+                .body("firstSide", equalTo(3.1f))
+                .body("secondSide", equalTo(3.1f))
+                .body("thirdSide", equalTo(3.1f))
                 .body("id", is(not(emptyString())));
     }
 
